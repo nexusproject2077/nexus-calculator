@@ -157,7 +157,7 @@ const swapBtn = document.getElementById('swapBtn');
 const convertValueEl = document.getElementById('convertValue');
 const resultDisplayEl = document.getElementById('resultDisplay');
 
-let history = [];
+let conversionHistory = [];
 
 function updateUnits() {
     const category = categoryEl.value;
@@ -215,10 +215,10 @@ function updateConvertDisplay() {
 
 function addToHistory(value, from, to, category) {
     const entry = `${value} ${from} \u2192 ${to}`;
-    history.unshift(entry);
-    history = history.slice(0, 5);
+    conversionHistory.unshift(entry);
+    conversionHistory = conversionHistory.slice(0, 5);
 
-    const historyHTML = history.map(h => `<div class="history-item">${h}</div>`).join('');
+    const historyHTML = conversionHistory.map(h => `<div class="history-item">${h}</div>`).join('');
     document.getElementById('historyList').innerHTML = historyHTML || '<div style="text-align: center; color: var(--text-dim); font-size: 12px;">Aucun historique</div>';
 }
 
