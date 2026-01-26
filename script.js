@@ -20,23 +20,38 @@ const calcView = document.getElementById('calcView');
 const convertView = document.getElementById('convertView');
 const tabButtons = document.querySelectorAll('.tab[data-tab]');
 
+function switchTab(tab) {
+    // Toggle active sur les boutons
+    tabButtons.forEach(function(t) {
+        if (t.getAttribute('data-tab') === tab) {
+            t.classList.add('active');
+        } else {
+            t.classList.remove('active');
+        }
+    });
+
+    // Toggle active sur les vues
+    if (tab === 'calc') {
+        calcView.style.display = 'flex';
+        convertView.style.display = 'none';
+    } else {
+        calcView.style.display = 'none';
+        convertView.style.display = 'flex';
+        updateConvertDisplay();
+    }
+}
+
+// Onglets dans la calculatrice
 tabButtons.forEach(function(btn) {
     btn.addEventListener('click', function() {
-        var tab = this.getAttribute('data-tab');
+        switchTab(this.getAttribute('data-tab'));
+    });
+});
 
-        // Toggle active sur les boutons
-        tabButtons.forEach(function(t) { t.classList.remove('active'); });
-        btn.classList.add('active');
-
-        // Toggle active sur les vues
-        if (tab === 'calc') {
-            calcView.style.display = 'flex';
-            convertView.style.display = 'none';
-        } else {
-            calcView.style.display = 'none';
-            convertView.style.display = 'flex';
-            updateConvertDisplay();
-        }
+// Liens de navigation qui changent aussi d'onglet
+document.querySelectorAll('.nav-link[data-nav-tab]').forEach(function(link) {
+    link.addEventListener('click', function() {
+        switchTab(this.getAttribute('data-nav-tab'));
     });
 });
 
