@@ -543,6 +543,39 @@ select {
     background: rgba(0, 240, 255, 0.03);
 }
 
+/* Glossary Grid */
+.glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.glossary-item {
+    background: var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    padding: 16px;
+    transition: border-color 0.3s;
+}
+
+.glossary-item:hover {
+    border-color: rgba(0, 240, 255, 0.15);
+}
+
+.glossary-item h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.glossary-item p {
+    color: var(--text-dim);
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
+}
+
 /* ========================================= */
 /* FAQ SECTION */
 /* ========================================= */
