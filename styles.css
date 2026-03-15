@@ -423,6 +423,13 @@ select {
     background: rgba(0, 240, 255, 0.1);
 }
 
+/* Native Banner Ad */
+.ad-native-banner {
+    margin: 10px 0 20px;
+    text-align: center;
+    min-height: 50px;
+}
+
 /* ========================================= */
 /* CONTENT SECTIONS */
 /* ========================================= */
